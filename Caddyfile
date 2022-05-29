@@ -1,0 +1,3 @@
+srsran.shubhamtatvamasi.com {
+  reverse_proxy portainer:9000
+}
