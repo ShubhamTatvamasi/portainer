@@ -9,4 +9,7 @@ docker run -d -p 9000:9000 --name portainer \
   portainer/portainer
 ```
 
-
+Stop container:
+```bash
+docker rm -f portainer
+```
