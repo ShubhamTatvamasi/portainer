@@ -12,7 +12,20 @@ docker run -d \
   portainer/portainer-ce
 ```
 
-Stop container:
+Remove portainer container:
 ```bash
 docker rm -f portainer
+```
+
+
+---
+
+Create nginx container:
+```bash
+docker run -d -p 80:80 --name nginx nginx:alpine
+```
+
+Remove nginx container:
+```bash
+docker rm -f nginx
 ```
