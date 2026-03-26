@@ -1,5 +1,13 @@
 # portainer
 
+### Git
+
+```bash
+git config user.email "shubham.tatvamasi@portainer.io"
+```
+
+---
+
 http://localhost:9000
 
 Run portainer:
