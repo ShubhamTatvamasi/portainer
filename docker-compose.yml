@@ -1,10 +1,10 @@
-version: "3.9"
-
 services:
   portainer:
-    image: portainer/portainer-ce
+    image: portainer/portainer-ee
     container_name: portainer
     restart: unless-stopped
+    ports:
+      - "9000:9000"
     security_opt:
       - no-new-privileges:true
     volumes:
@@ -12,19 +12,19 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - portainer_data:/data
 
-  caddy:
-    image: caddy
-    container_name: caddy
-    ports:
-      - "80:80"
-      - "443:443"
-    volumes:
-      - ./Caddyfile:/etc/caddy/Caddyfile
-      - caddy_data:/data
-      - caddy_config:/config
-    restart: unless-stopped
+  # caddy:
+  #   image: caddy
+  #   container_name: caddy
+  #   ports:
+  #     - "80:80"
+  #     - "443:443"
+  #   volumes:
+  #     - ./Caddyfile:/etc/caddy/Caddyfile
+  #     - caddy_data:/data
+  #     - caddy_config:/config
+  #   restart: unless-stopped
 
 volumes:
-  caddy_data:
-  caddy_config:
+  # caddy_data:
+  # caddy_config:
   portainer_data:
