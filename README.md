@@ -1,5 +1,18 @@
 # portainer
 
+Add helm repo:
+```bash
+helm repo add portainer https://portainer.github.io/k8s/
+```
+
+Install portainer:
+```bash
+helm upgrade -i portainer portainer/portainer
+  --create-namespace \
+  --namespace portainer
+```
+
+
 ### Git
 
 ```bash
