@@ -20,7 +20,9 @@ helm upgrade -i portainer portainer/portainer \
   --set "ingress.tls[0].hosts[0]=portainer.k8s.shubhamtatvamasi.com" \
   --set trusted_origins.enabled=true \
   --set "trusted_origins.domains=portainer.k8s.shubhamtatvamasi.com" \
-  --set enterpriseEdition.enabled=true
+  --set enterpriseEdition.enabled=true \
+  --set tls.force=true \
+  --set tls.existingSecret=shubhamtatvamasi-tls
 ```
 
 ---
