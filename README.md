@@ -7,9 +7,10 @@ helm repo add portainer https://portainer.github.io/k8s/
 
 Install portainer:
 ```bash
-helm upgrade -i portainer portainer/portainer-ee \
+helm upgrade -i portainer portainer/portainer \
   --create-namespace \
   --namespace portainer \
+  --set "image.repository=portainer/portainer-ee"
   --set service.type=ClusterIP \
   --set ingress.enabled=true \
   --set ingress.ingressClassName=traefik \
