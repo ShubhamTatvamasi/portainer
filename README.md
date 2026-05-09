@@ -7,7 +7,7 @@ helm repo add portainer https://portainer.github.io/k8s/
 
 Install portainer:
 ```bash
-helm upgrade -i portainer portainer/portainer \
+helm upgrade -i portainer portainer/portainer-ee \
   --create-namespace \
   --namespace portainer \
   --set service.type=ClusterIP \
@@ -18,7 +18,8 @@ helm upgrade -i portainer portainer/portainer \
   --set "ingress.tls[0].secretName=shubhamtatvamasi-tls" \
   --set "ingress.tls[0].hosts[0]=portainer.k8s.shubhamtatvamasi.com" \
   --set trusted_origins.enabled=true \
-  --set "trusted_origins.domains=portainer.k8s.shubhamtatvamasi.com"
+  --set "trusted_origins.domains=portainer.k8s.shubhamtatvamasi.com" \
+  --set enterpriseEdition.enabled=true
 ```
 
 ---
