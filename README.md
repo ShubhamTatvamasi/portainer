@@ -16,7 +16,6 @@ helm upgrade -i portainer portainer/portainer \
   --set "ingress.hosts[0].paths[0].path=/" \
   --set "ingress.tls[0].secretName=portainer-tls" \
   --set "ingress.tls[0].hosts[0]=portainer.k8s.shubhamtatvamasi.com"
-
 ```
 
 
