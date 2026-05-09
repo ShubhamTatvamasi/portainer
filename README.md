@@ -10,7 +10,7 @@ Install portainer:
 helm upgrade -i portainer portainer/portainer \
   --create-namespace \
   --namespace portainer \
-  --set "image.repository=portainer/portainer-ee"
+  --set "image.repository=portainer/portainer-ee" \
   --set service.type=ClusterIP \
   --set ingress.enabled=true \
   --set ingress.ingressClassName=traefik \
