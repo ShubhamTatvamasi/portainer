@@ -12,11 +12,16 @@ helm upgrade -i portainer portainer/portainer \
   --namespace portainer \
   --set service.type=ClusterIP \
   --set ingress.enabled=true \
+  --set ingress.ingressClassName=traefik \
   --set "ingress.hosts[0].host=portainer.k8s.shubhamtatvamasi.com" \
   --set "ingress.hosts[0].paths[0].path=/" \
   --set "ingress.tls[0].secretName=shubhamtatvamasi-tls" \
-  --set "ingress.tls[0].hosts[0]=portainer.k8s.shubhamtatvamasi.com"
+  --set "ingress.tls[0].hosts[0]=portainer.k8s.shubhamtatvamasi.com" \
+  --set trusted_origins.enabled=true \
+  --set "trusted_origins.domains=portainer.k8s.shubhamtatvamasi.com"
 ```
+
+---
 
 
 ### Git
