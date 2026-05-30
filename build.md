@@ -12,7 +12,7 @@ make server-ee
 
 ```
 cd package/server-ee
-PLATFORM=linux/amd64 make build-image -e ENV=production
+PLATFORM=linux ARCH=amd64 make build-image -e ENV=production
 ```
 
 ```bash
