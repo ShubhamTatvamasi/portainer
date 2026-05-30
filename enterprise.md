@@ -38,3 +38,21 @@ kubectl -n portainer patch deployment portainer \
   ]'
 ```
 
+```
+kubectl -n portainer patch deployment portainer \
+  --type='json' \
+  -p='[
+    {
+      "op": "replace",
+      "path": "/spec/template/spec/containers/0/args",
+      "value": [
+        "--tlscert=/certs/tls.crt",
+        "--tlskey=/certs/tls.key",
+        "--trusted-origins=https://portainer.k8s.shubhamtatvamasi.com",
+        "--node-shell"
+      ]
+    }
+  ]'
+```
+
+
