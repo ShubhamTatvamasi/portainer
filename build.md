@@ -25,6 +25,12 @@ docker buildx build \
   /home/ubuntu/portainer-suite/package/server-ee
 ```
 
+```
+docker tag \
+  portainerci/portainer-ee:local \
+  harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:node-shell
+```
+
 ```bash
 docker push harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:node-shell
 ```
