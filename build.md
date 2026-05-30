@@ -10,6 +10,11 @@ make format
 make server-ee
 ```
 
+```
+cd package/server-ee
+make build-image -e ENV=production
+```
+
 ```bash
 docker buildx build \
   --no-cache --load \
