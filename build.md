@@ -2,6 +2,10 @@
 
 ```bash
 make server-ee
+
+cd package/server-ee
+cd package/server-ce
+make format
 ```
 
 ```bash
