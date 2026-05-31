@@ -1,9 +1,8 @@
 # Build
 
 ```bash
-cd package/server-ee
-cd package/server-ce
-make format
+cd package/server-ee; make format; cd -
+cd package/server-ce; make format; cd -
 ```
 
 ```
