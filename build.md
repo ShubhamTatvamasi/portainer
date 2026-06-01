@@ -8,6 +8,7 @@ cd package/server-ce; make format; cd -
 ```
 cd package/server-ee
 PLATFORM=linux ARCH=amd64 make build-image -e ENV=production
+cd -
 ```
 
 ```
