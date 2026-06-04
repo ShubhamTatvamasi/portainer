@@ -21,6 +21,10 @@ docker tag \
 docker push harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:node-shell
 ```
 
+```bash
+kubectl rollout restart deployment portainer -n portainer
+```
+
 ---
 
 ### OLD
