@@ -18,7 +18,7 @@ helm upgrade -i portainer portainer/portainer \
   --set "ingress.tls[0].secretName=shubhamtatvamasi-tls" \
   --set "ingress.tls[0].hosts[0]=portainer.k8s.shubhamtatvamasi.com" \
   --set tls.existingSecret=shubhamtatvamasi-tls \
-  --set 'persistence.annotations.helm\.sh/resource-policy=keep'
+  --set "persistence.annotations.helm\.sh/resource-policy=keep"
 ```
 
 
