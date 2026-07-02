@@ -28,7 +28,8 @@ https://localhost:9443
 ```
 JWT=$(curl -sk -X POST https://localhost:9443/api/auth \
   -H "Content-Type: application/json" \
-  -d '{"Username":"admin","Password":"YourPassword!"}' | python3 -c "import sys,json;print(json.load(sys.stdin)['jwt'])")
+  -d '{"Username":"admin","Password":"YourPassword!"}' | \
+  python3 -c "import sys,json;print(json.load(sys.stdin)['jwt'])")
 ```
 
 ```
