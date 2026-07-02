@@ -8,6 +8,7 @@ https://api-docs.portainer.io/?edition=ee&version=2.43.0
 PORTAINER_VERSION=2.43.0
 PORTAINER_USERNAME=admin
 PORTAINER_PASSWORD=YourPassword!
+
 docker run --rm -it \
   --name portainer \
   -p 9443:9443 \
