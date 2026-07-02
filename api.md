@@ -43,34 +43,40 @@ echo $JWT
 
 Confirm license state:
 ```
-curl -sk https://localhost:9443/api/licenses/info -H "Authorization: Bearer $JWT"
+curl -sk https://localhost:9443/api/licenses/info \
+  -H "Authorization: Bearer $JWT"
 ```
 
 Check System status:
 ```
-curl -sk https://localhost:9443/api/system/status -H "Authorization: Bearer $JWT"
+curl -sk https://localhost:9443/api/system/status \
+  -H "Authorization: Bearer $JWT"
 ```
 
 List endpoints (environments):
 ```
-curl -sk https://localhost:9443/api/endpoints -H "Authorization: Bearer $JWT"
+curl -sk https://localhost:9443/api/endpoints \
+  -H "Authorization: Bearer $JWT"
 ```
 
 List teams:
 ```
-curl -sk https://localhost:9443/api/teams -H "Authorization: Bearer $JWT"
+curl -sk https://localhost:9443/api/teams \
+  -H "Authorization: Bearer $JWT"
 ```
 
 Create a team (RBAC, EE feature):
 ```
 curl -sk -X POST https://localhost:9443/api/teams \
-  -H "Authorization: Bearer $JWT" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $JWT" \
+  -H "Content-Type: application/json" \
   -d '{"Name":"test-team"}'
 ```
 
 List registries:
 ```
-curl -sk https://localhost:9443/api/registries -H "Authorization: Bearer $JWT"
+curl -sk https://localhost:9443/api/registries \
+  -H "Authorization: Bearer $JWT"
 ```
 
 Create a registry:
@@ -91,7 +97,8 @@ curl -sk -X POST https://localhost:9443/api/registries \
 Full backup export:
 ```bash
 curl -sk -X POST https://localhost:9443/api/backup \
-  -H "Authorization: Bearer $JWT" -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $JWT" \
+  -H "Content-Type: application/json" \
   -d '{}' -o backup.tar.gz
 ```
 
