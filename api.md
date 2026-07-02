@@ -32,7 +32,7 @@ JWT=$(curl -sk -X POST https://localhost:9443/api/auth \
 ```
 
 ```
-echo "JWT: ${JWT:0:20}..."
+echo $JWT
 ```
 
 2. Confirm license state
