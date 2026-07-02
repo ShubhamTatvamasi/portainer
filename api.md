@@ -1,6 +1,7 @@
 # API
 
-Start Portainer:
+### Start Portainer:
+
 ```bash
 PORTAINER_VERSION=2.43.0
 PORTAINER_USERNAME=admin
@@ -23,8 +24,9 @@ https://localhost:9443
 
 ---
 
-1. Authenticate as the admin account created by --admin-password
+### Access Portainer Via API
 
+Authenticate as the admin account created by `--admin-password`:
 ```
 JWT=$(curl -sk -X POST https://localhost:9443/api/auth \
   -H "Content-Type: application/json" \
@@ -32,51 +34,68 @@ JWT=$(curl -sk -X POST https://localhost:9443/api/auth \
   python3 -c "import sys,json;print(json.load(sys.stdin)['jwt'])")
 ```
 
+Check JWT Token:
 ```
 echo $JWT
 ```
 
-2. Confirm license state
-
+Confirm license state:
 ```
 curl -sk https://localhost:9443/api/licenses/info -H "Authorization: Bearer $JWT"
 ```
 
-3. System status
-
+Check System status:
 ```
 curl -sk https://localhost:9443/api/system/status -H "Authorization: Bearer $JWT"
 ```
 
-4. List endpoints (environments)
-
+List endpoints (environments):
 ```
 curl -sk https://localhost:9443/api/endpoints -H "Authorization: Bearer $JWT"
 ```
 
-5. List teams / create a team (RBAC, EE feature)
-
+List teams:
 ```
 curl -sk https://localhost:9443/api/teams -H "Authorization: Bearer $JWT"
 ```
 
+Create a team (RBAC, EE feature):
 ```
 curl -sk -X POST https://localhost:9443/api/teams \
   -H "Authorization: Bearer $JWT" -H "Content-Type: application/json" \
   -d '{"Name":"test-team"}'
 ```
 
-6. List/create registries
-
+List registries:
 ```
 curl -sk https://localhost:9443/api/registries -H "Authorization: Bearer $JWT"
 ```
 
-7. Full backup export
-
+Create a registry:
+```bash
+curl -sk -X POST https://localhost:9443/api/registries \
+  -H "Authorization: Bearer $JWT" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "Name": "harbor-shubhamtatvamasi",
+    "Type": 3,
+    "URL": "harbor.k8s.shubhamtatvamasi.com",
+    "Authentication": true,
+    "Username": "admin",
+    "Password": "admin"
+  }'
 ```
+
+Full backup export:
+```bash
 curl -sk -X POST https://localhost:9443/api/backup \
   -H "Authorization: Bearer $JWT" -H "Content-Type: application/json" \
   -d '{}' -o backup.tar.gz
 ```
+
+Extract backup:
+```bash
+tar -xzvf backup.tar.gz
+```
+
 
