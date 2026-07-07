@@ -1,5 +1,6 @@
 # Edge
 
+### Local Kubernetes
 
 Name | rke2-edge
 ---|---
@@ -17,3 +18,14 @@ kubectl run portainer-connectivity-check \
   --env="EDGE_INSECURE_POLL=1" \
   --env="EDGE_CONNECTIVITY_CHECK_TUNNEL_ADDR=portainer:8000"
 ```
+
+---
+
+### Remote Docker
+
+
+Name | docker-edge
+---|---
+Portainer API server URL | https://portainer.k8s.shubhamtatvamasi.com
+Portainer tunnel server address | edge-portainer.k8s.shubhamtatvamasi.com
+
