@@ -27,5 +27,5 @@ kubectl run portainer-connectivity-check \
 Name | docker-edge
 ---|---
 Portainer API server URL | https://portainer.k8s.shubhamtatvamasi.com
-Portainer tunnel server address | edge-portainer.k8s.shubhamtatvamasi.com
+Portainer tunnel server address | https://edge-portainer.k8s.shubhamtatvamasi.com
 
