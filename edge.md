@@ -7,7 +7,7 @@ Portainer API server URL | https://portainer:9443
 Portainer tunnel server address | portainer:8000
 
 
-Check connection to edge agent: 
+Check connection from edge agent: 
 ```bash
 kubectl run portainer-connectivity-check \
   --rm --attach --restart=Never \
