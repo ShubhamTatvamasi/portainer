@@ -14,8 +14,8 @@ cd -
 ```
 docker tag \
   portainerci/portainer-ee:local \
-  harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:node-shell
-docker push harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:node-shell
+  harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:gpu-metrics
+docker push harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:gpu-metrics
 ```
 
 ```bash
