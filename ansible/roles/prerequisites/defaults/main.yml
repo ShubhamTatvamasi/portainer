@@ -1,0 +1,13 @@
+---
+base_packages:
+  - build-essential
+  - ca-certificates
+  - curl
+  - git
+  - gnupg
+  - jq
+  - make
+  - tar
+  - unzip
+inotify_max_user_watches: 524288
+inotify_max_user_instances: 1024

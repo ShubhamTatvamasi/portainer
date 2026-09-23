@@ -1,0 +1,3 @@
+---
+- ansible.builtin.import_tasks: install-node.yml
+- ansible.builtin.import_tasks: install-pnpm.yml

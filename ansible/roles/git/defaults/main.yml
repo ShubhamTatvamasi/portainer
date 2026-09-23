@@ -1,0 +1,4 @@
+---
+git_user_email: ""            # e.g. myuser@portainer.io
+git_user_name: ""
+git_signing_key: ""           # GPG key ID; enables commit/tag signing when set

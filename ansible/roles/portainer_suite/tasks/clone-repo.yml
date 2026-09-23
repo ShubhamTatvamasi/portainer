@@ -1,0 +1,25 @@
+---
+- name: Create repo parent dir
+  ansible.builtin.file:
+    path: "{{ portainer_suite_dir | dirname }}"
+    state: directory
+    mode: "0755"
+
+- name: Clone portainer-suite
+  ansible.builtin.git:
+    repo: "{{ portainer_suite_repo }}"
+    dest: "{{ portainer_suite_dir }}"
+    update: false
+
+- name: Setup VS Code settings (make setup)
+  ansible.builtin.command: cp -R .vscode.example .vscode
+  args:
+    chdir: "{{ portainer_suite_dir }}"
+    creates: "{{ portainer_suite_dir }}/.vscode"
+
+- name: Install node dependencies
+  when: run_pnpm_install
+  ansible.builtin.shell: source {{ ansible_env.HOME }}/.nvm/nvm.sh && pnpm install
+  args:
+    executable: /bin/bash
+    chdir: "{{ portainer_suite_dir }}"

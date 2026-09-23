@@ -1,0 +1,48 @@
+---
+- name: Resolve latest Go version
+  when: go_version == 'latest'
+  ansible.builtin.uri:
+    url: https://go.dev/VERSION?m=text
+    return_content: true
+  register: go_latest
+
+- name: Set Go version fact
+  ansible.builtin.set_fact:
+    go_target: "{{ go_latest.content.splitlines()[0] if go_version == 'latest' else 'go' ~ (go_version | regex_replace('^go', '')) }}"
+    go_arch: "{{ 'arm64' if ansible_facts['architecture'] == 'aarch64' else 'amd64' }}"
+
+- name: Check installed Go version
+  ansible.builtin.command: /usr/local/go/bin/go env GOVERSION
+  register: go_installed
+  changed_when: false
+  failed_when: false
+
+- name: Install {{ go_target }}
+  when: go_installed.stdout != go_target
+  become: true
+  block:
+    - name: Remove old Go
+      ansible.builtin.file:
+        path: /usr/local/go
+        state: absent
+
+    - name: Download and extract Go
+      ansible.builtin.unarchive:
+        src: "https://go.dev/dl/{{ go_target }}.linux-{{ go_arch }}.tar.gz"
+        dest: /usr/local
+        remote_src: true
+
+- name: Put Go on PATH for login shells
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/profile.d/go.sh
+    mode: "0644"
+    content: |
+      export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
+
+- name: Add Go to ~/.bashrc
+  ansible.builtin.blockinfile:
+    path: "{{ ansible_env.HOME }}/.bashrc"
+    marker: "# {mark} ANSIBLE go"
+    block: |
+      export PATH=$PATH:/usr/local/go/bin:$(/usr/local/go/bin/go env GOPATH)/bin

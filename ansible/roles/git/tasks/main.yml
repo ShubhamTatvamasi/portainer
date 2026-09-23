@@ -1,0 +1,27 @@
+---
+- name: Configure git identity
+  community.general.git_config:
+    scope: global
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop: "{{ {'user.email': git_user_email, 'user.name': git_user_name} | dict2items }}"
+  when: item.value | length > 0
+
+- name: Configure commit signing
+  community.general.git_config:
+    scope: global
+    name: "{{ item.key }}"
+    value: "{{ item.value }}"
+  loop: "{{ {'user.signingkey': git_signing_key, 'commit.gpgsign': 'true', 'tag.gpgSign': 'true'} | dict2items }}"
+  when: git_signing_key | length > 0
+
+- name: Use SSH for private GitHub Go modules
+  community.general.git_config:
+    scope: global
+    name: url.ssh://git@github.com/.insteadOf
+    value: https://github.com/
+
+- name: Trust github.com host key
+  ansible.builtin.known_hosts:
+    name: github.com
+    key: "{{ lookup('ansible.builtin.pipe', 'ssh-keyscan -t ed25519 github.com 2>/dev/null') }}"

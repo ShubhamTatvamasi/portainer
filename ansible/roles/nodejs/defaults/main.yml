@@ -1,0 +1,4 @@
+---
+nvm_version: latest           # or e.g. "v0.40.8"
+node_version: lts/*           # latest LTS; or e.g. "24"
+pnpm_version: latest          # repo's package.json pins its own; corepack honours that inside the repo

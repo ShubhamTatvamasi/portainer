@@ -1,0 +1,9 @@
+---
+- name: Enable corepack and activate pnpm {{ pnpm_version }}
+  ansible.builtin.shell: >
+    source {{ ansible_env.HOME }}/.nvm/nvm.sh &&
+    corepack enable &&
+    COREPACK_ENABLE_DOWNLOAD_PROMPT=0 corepack install -g pnpm@{{ pnpm_version }}
+  args:
+    executable: /bin/bash
+  changed_when: false

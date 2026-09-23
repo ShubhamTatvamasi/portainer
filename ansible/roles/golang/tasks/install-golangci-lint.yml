@@ -1,0 +1,25 @@
+---
+- name: Resolve latest golangci-lint version
+  when: golangci_lint_version == 'latest'
+  ansible.builtin.uri:
+    url: https://api.github.com/repos/golangci/golangci-lint/releases/latest
+  register: gcl_latest
+
+- name: Set golangci-lint version fact
+  ansible.builtin.set_fact:
+    gcl_target: "{{ gcl_latest.json.tag_name if golangci_lint_version == 'latest' else golangci_lint_version }}"
+
+- name: Check golangci-lint version
+  ansible.builtin.command: "{{ ansible_env.HOME }}/go/bin/golangci-lint --version"
+  register: gcl
+  changed_when: false
+  failed_when: false
+
+- name: Install golangci-lint {{ gcl_target }}
+  when: gcl_target | regex_replace('^v', '') not in gcl.stdout | default('')
+  ansible.builtin.shell: >
+    set -o pipefail &&
+    curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh
+    | sh -s -- -b {{ ansible_env.HOME }}/go/bin {{ gcl_target }}
+  args:
+    executable: /bin/bash

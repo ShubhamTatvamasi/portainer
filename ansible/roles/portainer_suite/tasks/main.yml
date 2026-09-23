@@ -1,0 +1,16 @@
+---
+- name: Check GitHub SSH access (via forwarded agent)
+  ansible.builtin.command: ssh -T -o BatchMode=yes git@github.com
+  register: gh_ssh
+  changed_when: false
+  failed_when: false
+
+- name: Warn if GitHub SSH is unavailable
+  when: "'successfully authenticated' not in gh_ssh.stderr"
+  ansible.builtin.debug:
+    msg: >-
+      Skipping clone: GitHub SSH auth failed. Run `ssh-add` locally (agent is forwarded)
+      or put a GitHub key on the node, then re-run.
+
+- ansible.builtin.import_tasks: clone-repo.yml
+  when: "'successfully authenticated' in gh_ssh.stderr"

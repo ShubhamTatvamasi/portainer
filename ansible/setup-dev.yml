@@ -1,0 +1,12 @@
+---
+- name: Setup Portainer dev environment
+  hosts: all
+  environment:
+    PATH: "/usr/local/go/bin:{{ ansible_env.HOME }}/go/bin:{{ ansible_env.PATH }}"
+  roles:
+    - role: prerequisites
+    - role: docker
+    - role: golang
+    - role: nodejs
+    - role: git
+    - role: portainer_suite

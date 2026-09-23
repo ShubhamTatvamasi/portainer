@@ -1,0 +1,4 @@
+---
+- ansible.builtin.import_tasks: install-go.yml
+- ansible.builtin.import_tasks: install-golangci-lint.yml
+- ansible.builtin.import_tasks: install-tools.yml

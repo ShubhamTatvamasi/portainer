@@ -1,0 +1,7 @@
+---
+go_version: latest            # or e.g. "1.27.1"
+golangci_lint_version: latest # or e.g. "v2.13.2"
+go_tools:
+  - { pkg: github.com/go-delve/delve/cmd/dlv@latest, bin: dlv }
+  - { pkg: github.com/air-verse/air@latest, bin: air }
+  - { pkg: github.com/br0xen/boltbrowser@latest, bin: boltbrowser }

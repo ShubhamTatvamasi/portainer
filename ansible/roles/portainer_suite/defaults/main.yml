@@ -1,0 +1,4 @@
+---
+portainer_suite_repo: git@github.com:portainer/portainer-suite.git
+portainer_suite_dir: "{{ ansible_env.HOME }}/code/portainer-suite"
+run_pnpm_install: true
