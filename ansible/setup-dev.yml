@@ -9,4 +9,5 @@
     - role: golang
     - role: nodejs
     - role: git
+    - role: gh
     - role: portainer_suite
