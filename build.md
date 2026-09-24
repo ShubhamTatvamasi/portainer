@@ -1,16 +1,19 @@
 # Build
 
+Compile it:
 ```bash
 cd package/server-ee; make format; cd -
 cd package/server-ce; make format; cd -
 ```
 
+Create docker image:
 ```
 cd package/server-ee
 PLATFORM=linux ARCH=amd64 make build-image -e ENV=production
 cd -
 ```
 
+Private image:
 ```
 docker tag \
   portainerci/portainer-ee:local \
@@ -18,6 +21,15 @@ docker tag \
 docker push harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:gpu-metrics
 ```
 
+Public image:
+```
+docker tag \
+  portainerci/portainer-ee:local \
+  shubhamtatvamasi/portainer-ee:gpu-metrics
+docker push shubhamtatvamasi/portainer-ee:gpu-metrics
+```
+
+Restart portainer:
 ```bash
 kubectl rollout restart deployment portainer -n portainer
 ```
