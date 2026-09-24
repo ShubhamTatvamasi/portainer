@@ -36,16 +36,6 @@ kubectl rollout restart deployment portainer -n portainer
 
 ---
 
-
-```
-docker tag \
-  portainerci/portainer-ee:local \
-  harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:new-custom-resources
-docker push harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:new-custom-resources
-```
-
----
-
 ### OLD
 
 ```
