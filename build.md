@@ -36,6 +36,19 @@ kubectl rollout restart deployment portainer -n portainer
 
 ---
 
+```
+kubectl apply -f portainer-test.yaml
+```
+
+https://localhost:9443
+
+```
+kubectl port-forward -n portainer deploy/portainer-test 9443:9443
+```
+
+
+---
+
 ### OLD
 
 ```
