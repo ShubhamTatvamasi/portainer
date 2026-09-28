@@ -36,8 +36,17 @@ kubectl rollout restart deployment portainer -n portainer
 
 ---
 
-```
+### Development
+
+Deploy Portainer in test environment:
+```bash
 kubectl apply -f portainer-test.yaml
+```
+
+Update the deployment image:
+```bash
+kubectl -n portainer set image deployment/portainer-test \
+  portainer=shubhamtatvamasi/portainer-ee:gpu-metrics
 ```
 
 https://localhost:9443
