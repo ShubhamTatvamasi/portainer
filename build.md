@@ -43,6 +43,8 @@ Deploy Portainer in test environment:
 kubectl apply -f portainer-test.yaml
 ```
 
+https://hub.docker.com/r/portainerci/portainer-ee/tags?name=pr-3800
+
 Update the deployment image:
 ```bash
 kubectl -n portainer set image deployment/portainer-test \
