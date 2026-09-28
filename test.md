@@ -16,10 +16,10 @@ kubectl -n portainer set image deployment/portainer-test \
 https://localhost:9443
 
 ```
-kubectl port-forward -n portainer deploy/portainer-test 9443:9443
+kubectl -n portainer port-forward deploy/portainer-test 9443:9443
 ```
 
 Restart portainer-test:
 ```bash
-kubectl rollout restart deployment portainer-test -n portainer
+kubectl -n portainer rollout restart deployment portainer-test
 ```
