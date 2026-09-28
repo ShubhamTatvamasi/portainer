@@ -15,6 +15,7 @@ kubectl -n portainer set image deployment/portainer-test \
 
 https://localhost:9443
 
+Port-Forward for testing Web UI: 
 ```
 kubectl -n portainer port-forward deploy/portainer-test 9443:9443
 ```
