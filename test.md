@@ -24,3 +24,12 @@ Restart portainer-test:
 ```bash
 kubectl -n portainer rollout restart deployment portainer-test
 ```
+
+---
+
+Cleanup:
+```bash
+kubectl delete -n portainer \
+  deploy/portainer-test \
+  pvc/portainer-test
+```
