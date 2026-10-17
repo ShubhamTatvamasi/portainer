@@ -38,4 +38,17 @@ docker run --rm \
   portainer/agent:2.43.0
 ```
 
+---
+
+Public k8s test:
+```bash
+kubectl run portainer-connectivity-check \
+  --rm --attach --restart=Never \
+  --image=portainerci/agent:pr-3800 \
+  --env="EDGE_CONNECTIVITY_CHECK=1" \
+  --env="EDGE_CONNECTIVITY_CHECK_URL=https://portainer.droplet.shubhamtatvamasi.com" \
+  --env="EDGE_INSECURE_POLL=1" \
+  --env="EDGE_CONNECTIVITY_CHECK_TUNNEL_ADDR=https://edge-portainer.droplet.shubhamtatvamasi.com"
+```
+
 
