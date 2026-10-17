@@ -52,3 +52,12 @@ kubectl run portainer-connectivity-check \
 ```
 
 
+---
+
+```bash
+curl -s https://downloads.portainer.io/ee2-45/portainer-edge-agent-setup.sh \
+| sed 's|kubectl apply -f portainer-agent-edge-k8s.yaml|sed "s#image: portainer/agent:.*#image: portainerci/agent:pr-3800#" portainer-agent-edge-k8s.yaml > portainer-agent-edge-k8s-pr.yaml \&\& kubectl apply -f portainer-agent-edge-k8s-pr.yaml|' \
+| bash -s -- 
+```
+
+
