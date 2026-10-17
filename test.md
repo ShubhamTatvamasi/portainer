@@ -1,6 +1,7 @@
 # Test
 
-https://hub.docker.com/r/portainerci/portainer-ee/tags?name=pr-3800
+https://hub.docker.com/r/portainerci/portainer-ee/tags?name=pr-3800 \
+https://hub.docker.com/r/portainerci/agent/tags?name=pr-3800
 
 Deploy Portainer in test environment:
 ```bash
