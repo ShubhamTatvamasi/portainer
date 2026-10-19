@@ -31,7 +31,8 @@ spec:
       serviceAccountName: portainer-sa-clusteradmin
       containers:
         - name: portainer
-          image: portainerci/portainer-ee:pr-3800
+          # image: portainerci/portainer-ee:pr-3800
+          image: shubhamtatvamasi/portainer-ee:gpu-metrics
           imagePullPolicy: Always
           ports:
             - containerPort: 9000
