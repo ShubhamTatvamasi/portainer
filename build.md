@@ -1,6 +1,6 @@
 # Build
 
-Compile it:
+format the code:
 ```bash
 cd package/server-ee; make format; cd -
 cd package/server-ce; make format; cd -
