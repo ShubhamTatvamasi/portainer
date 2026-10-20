@@ -13,14 +13,6 @@ PLATFORM=linux ARCH=amd64 make build-image -e ENV=production
 cd -
 ```
 
-Private image:
-```
-docker tag \
-  portainerci/portainer-ee:local \
-  harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:gpu-metrics
-docker push harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:gpu-metrics
-```
-
 Public image:
 ```
 docker tag \
@@ -32,6 +24,16 @@ docker push shubhamtatvamasi/portainer-ee:gpu-metrics
 Restart portainer:
 ```bash
 kubectl rollout restart deployment portainer -n portainer
+```
+
+---
+
+Private image:
+```
+docker tag \
+  portainerci/portainer-ee:local \
+  harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:gpu-metrics
+docker push harbor.k8s.shubhamtatvamasi.com/portainer/portainer-ee:gpu-metrics
 ```
 
 ---
