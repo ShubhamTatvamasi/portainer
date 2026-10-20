@@ -6,10 +6,17 @@ cd package/server-ee; make format; cd -
 cd package/server-ce; make format; cd -
 ```
 
-Create docker image:
+Build server docker image:
 ```
 cd package/server-ee
 PLATFORM=linux ARCH=amd64 make build-image -e ENV=production
+cd -
+```
+
+Build agent docker image:
+```bash
+cd package/agent
+PLATFORM=linux ARCH=amd64 make agent -e ENV=production
 cd -
 ```
 
